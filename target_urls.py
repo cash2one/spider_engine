@@ -12,6 +12,8 @@ class Urls(object):
     def get_url(self):
         self.lock.acquire()
         if self.queue.empty():
+            logging.warn('url empty')
+            self.lock.release()
             return ''
         url = self.queue.get()
         self.lock.release()
