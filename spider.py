@@ -96,6 +96,8 @@ class Spider(object):
             self.login()
             if self.check_login():
                 break
+        else:
+            return False
         return True
 
     def parse(self, response):
